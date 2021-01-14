@@ -14,14 +14,8 @@ server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
 // routes/router(s) should go here
-
+server.use
 server.use("/nickname", routes)
-
-
-
-
-
-
 
 
 module.exports = server
