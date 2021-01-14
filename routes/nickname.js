@@ -7,8 +7,7 @@ router.get('/', (req, res) => {
     const newData = JSON.parse(data)
     if(err){
       console.log(err)
-    } else {
-      console.log(data)
+    } else{
       res.render('home', newData)
     }
   })
