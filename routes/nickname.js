@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs')
 
-// let name = {
-//   firstName: "",
-//   lastname: ""
-// }
+let name = {
+  firstName: "",
+  lastName: ""
+}
 
 let newName = " "
 
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     if(err){
       console.log(err)
     } else{
-      res.render('home')
+      res.render('form')
     }
   })
 })
@@ -29,15 +29,17 @@ router.post('/', (req, res) => {
     if(err){
       console.log(err)
     } else{
-      firstname = req.body.firstName
-      lastname = req.body.lastName 
-      let f = firstName[0]
-      let l = lastName[0]
-      let newFirstName = newData.firstName[0].f
-      let newLastName = newData.Lastname[0].l
+      //console.log(newData)
+      name.firstName = req.body.firstName
+      name.lastName = req.body.lastName 
+      let f = name.firstName[0]
+      let l = name.lastName[0]
+      // console.log(f , l)
+      let newFirstName = newData.firstName[0][f]
+      let newLastName = newData.lastName[0][l]
       // data.""
       newName = newFirstName + " " + newLastName
-      res.redirect('/NewName')
+      res.redirect('/nickname/NewName')
     }
   })
 })
@@ -46,7 +48,10 @@ router.post('/', (req, res) => {
 
 //displays new name on webpage
 router.get('/NewName', (req, res) => {
-  res.render("name", newName)
+  let name = {
+    name : newName
+  }
+  res.render("name", name)
 })
 
 
