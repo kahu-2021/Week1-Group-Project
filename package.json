@@ -7,14 +7,12 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "nodemon": "^2.0.7"
-    
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev":"nodemon index --ignore data.json"
-    
+    "dev": "nodemon index --ignore data.json"
   },
   "keywords": [],
   "author": "",
