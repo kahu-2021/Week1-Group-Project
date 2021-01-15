@@ -67,25 +67,41 @@ server.get("/adventure/:id", (req, res) => {
   });
 });
 
-// server.post("/adventure/:id", (req, res) => {
-//   fs.readFile("./image.json", "utf8", (err, data) => {
-//     if (err) {
-//       console.log("there is an error ", err);
-//     } else {
-//       let newData = {
-//         ...JSON.parse(data),
-//       };
-//       prop = newData.images.find((image) => image.id == req.params.id);
-//       fs.writeFile("./image.json", JSON.stringify(prop, null, 2), "utf8", (err) => {
-//         if(err) {
-//           console.log("there was an error ", err)
-//         } else {
-//           res.render("pictures", prop)
+server.post("/adventure/:id", (req, res) => {
+  // let prop = {
+  //   propID: "",
+  //   imageURL: "",
+  //   comments: "",
+  // };
+
+  fs.readFile("./image.json", "utf8", (err, data) => {
+    if (err) {
+      console.log("there is an error ", err);
+    } else {
+      let newData = {
+        ...JSON.parse(data),
+      };
+      // prop = newData.images.find((image) => image.id == req.params.id);
+      
+      newData.images = newData.images.map((image) => {
+        if(image.id == req.params.id) {
+          image.comments += ", "+req.body.comment
+        }
+        return image
+      })
+
+      // prop.comments += ", "+req.body.comment
+
+      fs.writeFile("./image.json", JSON.stringify(newData, null, 2), "utf8", (err) => {
+        if(err) {
+          console.log("there was an error ", err)
+        } else {
+          res.redirect("/adventure/"+req.params.id)
           
-//         }
-//       })
-//     }
-//   });
-// });
+        }
+      })
+    }
+  });
+});
 
 module.exports = server;
