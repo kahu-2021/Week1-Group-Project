@@ -13,6 +13,13 @@ body {
   text-align: center;
 }
 
+.pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto
+}
+
 .nav {
   text-align: center;
   color: black;
@@ -28,4 +35,8 @@ body {
 .welcome {
   text-align: center;
   color: black;
+}
+
+.homeTag {
+  text-align: center;
 }

@@ -1,7 +1,6 @@
-<h1>nice pic <br></h1> <img src="{{image}}"> </a>
-<p>{{comments}}</p> <br>
+<h1 class="title">nice pic <br></h1> <img class="pic" src="{{image}}"> </a>
+<p class="title" >{{comments}}</p> <br>
 <form class="form" action="/adventure/{{id}}" method="post">
-  {{!-- <img class="img-circle" src="{{image}}" alt="{{name}}"> --}}
   <label for="comment" class="form-item">
     Add a new comment:
     <input type="text" name="comment" value="{{comment}}">
@@ -9,3 +8,4 @@
   
   <input type="submit" name="" value="Submit">
 </form>
+<a class="homeTag" href="http://localhost:3000/">Home</a>
