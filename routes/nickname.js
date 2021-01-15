@@ -32,8 +32,8 @@ router.post('/', (req, res) => {
       //console.log(newData)
       name.firstName = req.body.firstName
       name.lastName = req.body.lastName 
-      let f = name.firstName[0]
-      let l = name.lastName[0]
+      let f = name.firstName[0].toUpperCase()
+      let l = name.lastName[0].toUpperCase()
       // console.log(f , l)
       let newFirstName = newData.firstName[0][f]
       let newLastName = newData.lastName[0][l]
@@ -49,39 +49,10 @@ router.post('/', (req, res) => {
 //displays new name on webpage
 router.get('/NewName', (req, res) => {
   let name = {
-    name : newName
+    name:newName
   }
   res.render("name", name)
 })
-
-
-
-
-
-
-
-
-// router.get('firstName:', (req, res) => {
-//   fs.readFile('./data.json', 'utf8', (err, filecontents) => {
-//     const puppiesList = JSON.parse(filecontents)
-//     const puppyId = req.params.id
-    
-//     if(err){
-//       console.log('big error', err)
-      
-//     } else {
-//     const foundPuppy = puppiesList.puppies.find(puppy => puppy.id == puppyId)
-//     // console.log(foundPuppy)
-//     // console.log('here are the puppies', filecontents)
-//     res.render('edit', foundPuppy)
-//   }
-//     }
-// )
-// })
-
-
-// [L]ogan
-// [W]ebber
 
 
 
